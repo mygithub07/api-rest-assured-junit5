@@ -40,5 +40,9 @@ public class Helpers     {
 
              return false;
         }
+         public  String guiceTest(){
+          return ("guice test");
+          
+         }
 }
 

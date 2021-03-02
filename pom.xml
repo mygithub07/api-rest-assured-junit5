@@ -18,7 +18,7 @@
       <aspectj.version>1.9.1</aspectj.version>
     <!-- Test selection properties -->
     <tests.to.run>**/**Test.java</tests.to.run>
-      <skipSurefireReport>true</skipSurefireReport>
+     
   </properties>
     <repositories>
   <repository>
@@ -38,103 +38,75 @@
     </pluginRepository>
   </pluginRepositories>
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>${junit.version}</version>
-      <scope>test</scope>
-    </dependency>
+   
+
+      <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.7.0</version>
+            <scope>test</scope>
+      </dependency>
+      
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-java</artifactId>
       <version>${cucumber.version}</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>org.assertj</groupId>
-      <artifactId>assertj-core</artifactId>
-      <version>${assertj.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.httpcomponents</groupId>
-      <artifactId>httpclient</artifactId>
-      <version>${httpclient.version}</version>
-      <scope>test</scope>
-    </dependency>
+
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
       <version>${selenium-java.version}</version>
       <scope>test</scope>
     </dependency>
-    <!-- Maven was somehow resolving the wrong version of Guava required by Selenium, so this hack is required with 3.141.59 -->
-    <dependency>
-      <groupId>com.google.guava</groupId>
-      <artifactId>guava</artifactId>
-      <version>25.0-jre</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.bazaarvoice.maven.plugins</groupId>
-      <artifactId>process-exec-maven-plugin</artifactId>
-      <version>0.9</version>
-      <scope>test</scope>
-    </dependency>
+
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
       <version>2.0.0-alpha1</version>
       <scope>provided</scope>
     </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-simple</artifactId>
-      <version>2.0.0-alpha1</version>
-      <scope>test</scope>
-    </dependency>
+ 
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-guice</artifactId>
       <version>${cucumber.version}</version>
       <scope>test</scope>
     </dependency>
+    
     <dependency>
       <groupId>com.google.inject</groupId>
       <artifactId>guice</artifactId>
       <version>4.2.3</version>
       <scope>test</scope>
     </dependency>
+  
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit-platform-engine</artifactId>
             <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
-   
-    <dependency>
-    <groupId>org.codehaus.mojo</groupId>
-    <artifactId>build-helper-maven-plugin</artifactId>
-    <version>3.2.0</version> 
+      
+      <dependency>
+        <groupId>io.rest-assured</groupId>
+        <artifactId>rest-assured</artifactId>
+        <version>4.3.3</version>
+        <scope>test</scope>
     </dependency>
       <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-junit5</artifactId>
-            <version>${allure-junit5.version}</version>
-      </dependency>
-       <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>${aspectj.version}</version>
-       </dependency>
-     <dependency>
-  <groupId>org.apache.maven.plugins</groupId>
-  <artifactId>maven-surefire-report-plugin</artifactId>
-  <version>3.0.0-M5</version>
-  <type>pom</type>
+    <groupId>org.assertj</groupId>
+    <artifactId>assertj-core</artifactId>
+    <version>3.19.0</version>
+    <scope>test</scope>
+</dependency>
+ <dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20201115</version>
 </dependency>
   </dependencies>
- 
     
   <profiles>
  <profile>
@@ -185,7 +157,7 @@
                 <includes>
                     <include>**/*IT.java</include>
                 </includes>
-                  
+                <!--  
                  <properties>
                         <property>
                             <name>listener</name>
@@ -206,7 +178,7 @@
                         </property>
                     </systemProperties>
                     <reportFormat>plain</reportFormat>
-                    
+                    -->
                 </configuration>
           </plugin>
            <plugin>
@@ -216,26 +188,28 @@
           <source>8</source>
           <target>8</target>
         </configuration>
+             
       </plugin>
+             
+             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>failsafe-report-only</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            
+            
         </plugins>
-        
+      
       </build>
-     <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-report-plugin</artifactId>
-        <version>3.0.0-M5</version>
-         <configuration>
-                <skipSurefireReport>${skipSurefireReport}</skipSurefireReport>
-                <reportsDirectories>
-                    <reportsDirectory>${basedir}/target/failsafe-reports</reportsDirectory>
-                </reportsDirectories>
-            </configuration>
-      </plugin>
-    </plugins>
-  </reporting>
+    
     </profile>
   </profiles>
-
+ 
 </project>

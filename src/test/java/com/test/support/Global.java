@@ -16,15 +16,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
       public class Global {
       public WebDriver driver;
        public WebDriverWait wait;
-     //  public PageObjects po;
+       public Helpers help;
+       public PageObjects po;
       public Global() {
-            driver = new DriverFactory().getManager();
-            wait = new WebDriverWait(driver, 3000);
+          //  driver = new DriverFactory().getManager();
+         //   wait = new WebDriverWait(driver, 3000);
            // PageFactory.initElements(driver, this);
-          //  PageFactory.initElements(driver, po);
+        //    PageFactory.initElements(driver, PageObjects.class );
+              help = new Helpers();
       }
-     // public PageFactory pf = new PageFactory();
-      
-    // public Support support = new Support();
-    //public Wait wait = new Wait(driver);
+
 }

@@ -1,3 +1,6 @@
+
+/******Old way of Injecting*********
+ 
 package com.test.support;
 
 import org.openqa.selenium.support.PageFactory;
@@ -11,7 +14,8 @@ public class BasePage {
          // you can use for all the other Page Objects
          public BasePage(Global global) {
          this.global = global;
-         PageFactory.initElements(global.driver, this);
+       //  PageFactory.initElements(global.driver, this);
          
          }
 }
+*/
