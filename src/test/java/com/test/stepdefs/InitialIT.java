@@ -75,12 +75,6 @@ public class InitialIT  {
        }
        
       
-         @After
-        public void closeBrowser() {
-
-             global.driver.quit();
-      }
-      
    
 
 }

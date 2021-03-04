@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class Helper {
     
-    
+ //currently this class is not used 
     static Map<String, Object> createMapFromJsonObject(JsonObject jo)
   {
         Map<String, Object> map = new HashMap<String, Object>();

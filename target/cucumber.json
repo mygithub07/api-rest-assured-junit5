@@ -1,0 +1,105 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2021-03-04T20:17:59.803Z",
+        "line": 3,
+        "name": "get and post sample employee",
+        "description": "",
+        "id": "second-feature-test;get-and-post-sample-employee",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1422838000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "an employee exist in the database with id \"2\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"2\"",
+                  "offset": 42
+                }
+              ],
+              "location": "com.test.stepdefs.secondIT.an_employee_exists_with_id(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1711042000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "user retrieves employee info by id",
+            "match": {
+              "location": "com.test.stepdefs.secondIT.user_retrieves_employee_info_by_id()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 39549000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "the status code for get employee is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 36
+                }
+              ],
+              "location": "com.test.stepdefs.secondIT.verify_status(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "error_message": "java.lang.AssertionError: \nExpecting map:\n  {\"data.employee_name\"\u003d\"Garrett Winters\", \"data.id\"\u003d2, \"status\"\u003d\"success\"}\nto contain:\n  [status\u003dsuccess, data.employee_name\u003dGarrett Winters, data.id\u003d2]\nbut could not find the following map entries:\n  [data.id\u003d2]\n\n\tat com.test@1.0-SNAPSHOT/com.test.stepdefs.secondIT.employee_response_equals(secondIT.java:144)\n\tat ✽.response includes the following employee info(classpath:com/test/secondTest.feature:8)\n",
+              "duration": 740319000,
+              "status": "failed"
+            },
+            "line": 8,
+            "name": "response includes the following employee info",
+            "match": {
+              "location": "com.test.stepdefs.secondIT.employee_response_equals(java.util.Map\u003cjava.lang.String, java.lang.Object\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "status",
+                  "success"
+                ]
+              },
+              {
+                "cells": [
+                  "data.employee_name",
+                  "Garrett Winters"
+                ]
+              },
+              {
+                "cells": [
+                  "data.id",
+                  "2"
+                ]
+              }
+            ],
+            "keyword": "And "
+          }
+        ]
+      }
+    ],
+    "name": "second feature test",
+    "description": "",
+    "id": "second-feature-test",
+    "keyword": "Feature",
+    "uri": "classpath:com/test/secondTest.feature",
+    "tags": []
+  }
+]

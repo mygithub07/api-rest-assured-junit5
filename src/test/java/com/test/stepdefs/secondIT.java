@@ -73,20 +73,10 @@ public class secondIT {
 		System.out.println("status code:  " + secondIT.response.getStatusCode());
 		assertEquals(sc,secondIT.response.getStatusCode());
 	}
+
 	/*
-	 @And("response includes the following employee info$")
-	public void employee_response_equals(Map<String,String> responseFields){
-		//System.out.println("print information: " + secondIT.jsonPathEvaluator.get("data.id"));
-		for (Map.Entry<String, String> field : responseFields.entrySet()) {
-			  System.out.println("key: "+field.getKey());
-			  System.out.println("print key: " + secondIT.jsonPathEvaluator.get(field.getKey()));
-			  System.out.println("print value: " + secondIT.jsonPathEvaluator.get(field.getValue()));
-				assertEquals(secondIT.jsonPathEvaluator.get(field.getKey()), field.getValue());
-			}
-		
-	}
-	*/
-	/*
+	
+	//creating a list of maps from data table and printing all values from each map
 	  @And("response includes the following employee info$")
 	public void employee_response_equals(DataTable responseFields){
 		  List<Map<String,String>> fields = responseFields.asMaps(String.class,String.class);
@@ -105,11 +95,8 @@ public class secondIT {
 	
 	 @And("response includes the following employee info$")
 	public void employee_response_equals(Map<String, Object> ExpectedFields){
-	 	
-		// Map<String, Object> actualFields =  ExpectedFields.keySet().stream().collect(Collectors.toMap(Function.identity(), f->secondIT.jsonPathEvaluator.get(f)));
-        Map<String, Object> actualFields =  ExpectedFields.keySet().stream().collect(Collectors.toMap(expectedKey -> expectedKey, expectedKey -> jsonPathEvaluator.get(expectedKey)));
-       
-		 //   assertThat(actualFields).containsAllEntriesOf(responseFields);
+       Map<String, Object> actualFields =  ExpectedFields.keySet().stream().collect(Collectors.toMap(expectedKey -> expectedKey, expectedKey -> jsonPathEvaluator.get(expectedKey)));
+
           for (Map.Entry<String, Object> ent : actualFields.entrySet()) {
 				  System.out.println(ent.getKey() + " = " + ent.getValue());
              }
@@ -124,29 +111,12 @@ JsonObject jsonObj = element.getAsJsonObject();
 		       System.out.println(entry.getKey()+"@@@"+ entry.getValue());
 				 // assertEquals(secondIT.jsonPathEvaluator.get(entry.getKey()), entry.getValue());			  
              }
-  */        
-          
-       //    assertEquals(secondIT.jsonPathEvaluator.get(entry.getKey()), entry.getValue());
-      
-	// System.out.println("jsonString:"+jsonPathEvaluator.prettify());
-	//	System.out.println("jsonPathToString:"+jsonPathEvaluator.getString("$"));
-//	 Map<String,Object> map= new Gson().fromJson(jsonPathEvaluator.prettyPrint(), new TypeToken<Map<String, Object>>(){}.getType());
-	// Map<String,Object> map= new Gson().fromJson(jsonPathEvaluator.getString("$"), Map.class);
-//	Map<String,Object> map= new Gson().fromJson(jsonString, new TypeToken<Map<String, Object>>(){}.getType());
-	//	Map<String,Object> map= new Gson().fromJson(jsonPathEvaluator.prettyPrint(), Map.class);
-		 
-	  
+  */
 	    for (Map.Entry<String, Object> entry : ExpectedFields.entrySet()) {
-	    	
-	    //	 assertThat(map).containsAllEntriesOf(responseFields);
 				  System.out.println(entry.getKey() + " ** " + entry.getValue());
-				 // assertEquals(secondIT.jsonPathEvaluator.get(entry.getKey()), entry.getValue());
-				
              }
-	 //   assertThat( false).isTrue();
-	   
-	//	 ResponseContainer rc = new ResponseContainer();
-	 //    rc.fromJson(jsonPathEvaluator.prettyPrint());
+	     assertThat(actualFields).containsAllEntriesOf(ExpectedFields); 
+
 		 
 		 
 	}
