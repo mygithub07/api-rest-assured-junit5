@@ -1,7 +1,5 @@
 package com.test.stepdefs;
 
-
-
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.equalTo;
@@ -14,6 +12,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import com.google.common.reflect.TypeToken;
+import com.jayway.jsonpath.DocumentContext;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
@@ -33,12 +32,16 @@ import org.apache.commons.lang3.StringUtils;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
-import org.junit.jupiter.api.Assertions;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
+
+ import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
+ import static net.javacrumbs.jsonunit.assertj.JsonAssertions.json;
+
 import org.json.*;
+
 
 @io.cucumber.junit.platform.engine.Cucumber
 public class secondIT {
@@ -53,15 +56,16 @@ public class secondIT {
 	@Given("an employee exist in the database with id {string}")
 	public void an_employee_exists_with_id(String ID){
 		secondIT.id=ID;
-		RestAssured.baseURI = "http://dummy.restapiexample.com/api/v1/employee/";
+		//RestAssured.baseURI = "http://dummy.restapiexample.com/api/v1/employee/";
+		RestAssured.baseURI = "http://dummy.restapiexample.com/api/v1";
 		secondIT.request = RestAssured.given();
 	}
 	
 	@When("user retrieves employee info by id")
 	public void user_retrieves_employee_info_by_id(){
 	    
-		secondIT.response = secondIT.request.pathParam("id", secondIT.id).get("/{id}");
-		  secondIT.jsonPathEvaluator = secondIT.response.jsonPath();
+		secondIT.response = secondIT.request.pathParam("id", secondIT.id).get("/employee/{id}");
+		secondIT.jsonPathEvaluator = secondIT.response.jsonPath();
 		assertNotNull(response);
 		System.out.println("response: " + secondIT.response.getBody().prettyPrint());
 	}
@@ -116,10 +120,44 @@ JsonObject jsonObj = element.getAsJsonObject();
 				  System.out.println(entry.getKey() + " ** " + entry.getValue());
              }
 	     assertThat(actualFields).containsAllEntriesOf(ExpectedFields); 
-
-		 
-		 
+	    
 	}
 	
-
+@Given("an employee record is created with values")
+	public void create_employee_record(){
+	 	 JSONObject jsonObj = new JSONObject()
+                             .put("employee_name","test name")
+				              .put("age",41)
+	 	                     .put("salary",410000);
+	 	 
+	 	            // secondIT.request.header("Content-Type", "application/json");
+                    //  secondIT.request.body(jsonObj.toString());
+                   //  Response  postResponse = secondIT.request.post("/create");
+                  //    DocumentContext ctx = com.jayway.jsonpath.JsonPath.parse(postResponse.getBody().prettyPrint());
+                  //   JsonPathAssert.assertThat(ctx).jsonPathAsInteger("$.data.salary").isEqualTo(410000);
+                     
+                             //.port(80) // port number
+                        Response  postResponse =   RestAssured.given()
+                             .contentType("application/json")  //another way to specify content type
+                             .body(jsonObj.toString())   // use jsonObj toString method
+                             .when()
+                             .post("/create");
+	 	                  /*
+	 	                    //hamcrest assert
+	 	                     then()
+                             .assertThat()
+							 .rootPath("data")
+                             .body("age", equalTo(41))
+							 .body("salary", equalTo(410000));
+							 */
+	          assertThatJson(postResponse.getBody().prettyPrint())
+					  .inPath("$.data.salary").isEqualTo(410000);
+	           assertThatJson(postResponse.getBody().prettyPrint())
+					  .inPath("$.data.age").isEqualTo(41);
+	           assertThatJson(postResponse.getBody().prettyPrint())
+					  .inPath("$.status").isEqualTo("success");
+	            assertThatJson(postResponse.getBody().prettyPrint())
+					  .inPath("$.message").isEqualTo("Successfully! Record has been added.");
+	            
+	 }
 }
