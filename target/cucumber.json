@@ -3,17 +3,17 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2021-03-07T19:03:43.683Z",
+        "start_timestamp": "2021-03-19T16:07:39.820Z",
         "line": 3,
-        "name": "get and post sample employee",
+        "name": "get employee",
         "description": "",
-        "id": "second-feature-test;get-and-post-sample-employee",
+        "id": "second-feature-test;get-employee",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 839624000,
+              "duration": 1532581000,
               "status": "passed"
             },
             "line": 5,
@@ -31,7 +31,7 @@
           },
           {
             "result": {
-              "duration": 1499616000,
+              "duration": 4354523000,
               "status": "passed"
             },
             "line": 6,
@@ -43,8 +43,9 @@
           },
           {
             "result": {
-              "duration": 42980000,
-              "status": "passed"
+              "error_message": "java.lang.AssertionError: 1 expectation failed.\nExpected status code \u003c200\u003e but was \u003c429\u003e.\n\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)\n\tat org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:72)\n\tat org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:59)\n\tat org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)\n\tat org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:59)\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:263)\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)\n\tat io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:493)\n\tat io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)\n\tat org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:139)\n\tat io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:674)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\n\tat org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)\n\tat org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:193)\n\tat org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:61)\n\tat org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:51)\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:171)\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)\n\tat io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:126)\n\tat io.restassured.specification.ResponseSpecification$statusCode$0.callCurrent(Unknown Source)\n\tat org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:51)\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:171)\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)\n\tat io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:134)\n\tat io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:89)\n\tat io.restassured.internal.ValidatableResponseImpl.super$2$statusCode(ValidatableResponseImpl.groovy)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\n\tat org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:107)\n\tat groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)\n\tat groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1268)\n\tat org.codehaus.groovy.runtime.ScriptBytecodeAdapter.invokeMethodOnSuperN(ScriptBytecodeAdapter.java:144)\n\tat io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:142)\n\tat io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy)\n\tat com.test@1.0-SNAPSHOT/com.test.stepdefs.secondIT.verify_status(secondIT.java:66)\n\tat ✽.the status code for get employee is 200(classpath:com/test/secondTest.feature:7)\n",
+              "duration": 63348000,
+              "status": "failed"
             },
             "line": 7,
             "name": "the status code for get employee is 200",
@@ -61,8 +62,8 @@
           },
           {
             "result": {
-              "duration": 560788000,
-              "status": "passed"
+              "duration": 1673000,
+              "status": "skipped"
             },
             "line": 8,
             "name": "response includes the following employee info",
@@ -81,21 +82,124 @@
                   "data.employee_name",
                   "Garrett Winters"
                 ]
+              },
+              {
+                "cells": [
+                  "data.id",
+                  "2"
+                ]
+              },
+              {
+                "cells": [
+                  "data.employee_age",
+                  "63"
+                ]
               }
             ],
             "keyword": "And "
-          },
+          }
+        ],
+        "tags": [
+          {
+            "name": "@get"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-03-19T16:07:45.938Z",
+        "line": 15,
+        "name": "post employee",
+        "description": "",
+        "id": "second-feature-test;post-employee",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
           {
             "result": {
-              "duration": 1091090000,
-              "status": "passed"
+              "error_message": "java.lang.AssertionError: Different value found in node \"$.data.salary\", expected: \u003cstring\u003e but was: \u003cmissing\u003e.\n\tat net.javacrumbs.jsonunit.core.internal.matchers.InternalMatcher.failWithMessage(InternalMatcher.java:237)\n\tat net.javacrumbs.jsonunit.core.internal.matchers.InternalMatcher.failOnDifference(InternalMatcher.java:187)\n\tat net.javacrumbs.jsonunit.core.internal.matchers.InternalMatcher.failOnDifference(InternalMatcher.java:174)\n\tat net.javacrumbs.jsonunit.core.internal.matchers.InternalMatcher.isPresent(InternalMatcher.java:274)\n\tat net.javacrumbs.jsonunit.core.internal.matchers.InternalMatcher.assertType(InternalMatcher.java:289)\n\tat net.javacrumbs.jsonunit.assertj.JsonAssert.assertType(JsonAssert.java:267)\n\tat net.javacrumbs.jsonunit.assertj.JsonAssert.isString(JsonAssert.java:209)\n\tat com.test@1.0-SNAPSHOT/com.test.stepdefs.secondIT.create_employee_record(secondIT.java:129)\n\tat ✽.an employee record is created with values(classpath:com/test/secondTest.feature:16)\n",
+              "duration": 1314739000,
+              "status": "failed"
             },
-            "line": 13,
+            "line": 16,
             "name": "an employee record is created with values",
             "match": {
-              "location": "com.test.stepdefs.secondIT.create_employee_record()"
+              "location": "com.test.stepdefs.secondIT.create_employee_record(java.util.Map\u003cjava.lang.String, java.lang.Object\u003e)"
             },
+            "rows": [
+              {
+                "cells": [
+                  "employee_name",
+                  "Test Name1"
+                ]
+              },
+              {
+                "cells": [
+                  "age",
+                  "41"
+                ]
+              },
+              {
+                "cells": [
+                  "salary",
+                  "320000"
+                ]
+              }
+            ],
             "keyword": "Given "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@post"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-03-19T16:07:47.276Z",
+        "line": 22,
+        "name": "post another employee",
+        "description": "",
+        "id": "second-feature-test;post-another-employee",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "error_message": "java.lang.AssertionError: Different value found in node \"$.data.salary\", expected: \u003cstring\u003e but was: \u003cmissing\u003e.\n\tat net.javacrumbs.jsonunit.core.internal.matchers.InternalMatcher.failWithMessage(InternalMatcher.java:237)\n\tat net.javacrumbs.jsonunit.core.internal.matchers.InternalMatcher.failOnDifference(InternalMatcher.java:187)\n\tat net.javacrumbs.jsonunit.core.internal.matchers.InternalMatcher.failOnDifference(InternalMatcher.java:174)\n\tat net.javacrumbs.jsonunit.core.internal.matchers.InternalMatcher.isPresent(InternalMatcher.java:274)\n\tat net.javacrumbs.jsonunit.core.internal.matchers.InternalMatcher.assertType(InternalMatcher.java:289)\n\tat net.javacrumbs.jsonunit.assertj.JsonAssert.assertType(JsonAssert.java:267)\n\tat net.javacrumbs.jsonunit.assertj.JsonAssert.isString(JsonAssert.java:209)\n\tat com.test@1.0-SNAPSHOT/com.test.stepdefs.secondIT.create_another_employee_record(secondIT.java:154)\n\tat ✽.an employee record is created with other values(classpath:com/test/secondTest.feature:23)\n",
+              "duration": 814168000,
+              "status": "failed"
+            },
+            "line": 23,
+            "name": "an employee record is created with other values",
+            "match": {
+              "location": "com.test.stepdefs.secondIT.create_another_employee_record(java.util.Map\u003cjava.lang.String, java.lang.Object\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "employee_name",
+                  "Test Name2"
+                ]
+              },
+              {
+                "cells": [
+                  "age",
+                  "50"
+                ]
+              },
+              {
+                "cells": [
+                  "salary",
+                  "500000"
+                ]
+              }
+            ],
+            "keyword": "Given "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@post"
           }
         ]
       }

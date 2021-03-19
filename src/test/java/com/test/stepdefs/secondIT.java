@@ -1,33 +1,21 @@
 package com.test.stepdefs;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.containsInAnyOrder;
-import static org.hamcrest.Matchers.equalTo;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
+import java.io.IOException;
 import java.util.Map;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import com.google.common.reflect.TypeToken;
-import com.jayway.jsonpath.DocumentContext;
-import io.cucumber.datatable.DataTable;
-import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.And;
 
-import io.cucumber.messages.internal.com.google.gson.Gson;
-import io.cucumber.messages.internal.com.google.gson.JsonElement;
-import io.cucumber.messages.internal.com.google.gson.JsonObject;
-import io.cucumber.messages.internal.com.google.gson.JsonParser;
+//import io.github.artsok.RepeatedIfExceptionsTest;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 
-import org.apache.commons.lang3.StringUtils;
+
 
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
@@ -38,10 +26,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
  import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
- import static net.javacrumbs.jsonunit.assertj.JsonAssertions.json;
 
 import org.json.*;
 
+//import me.jaksa.Unreliable;
+//import static me.jaksa.Unreliable.retryOn;
 
 @io.cucumber.junit.platform.engine.Cucumber
 public class secondIT {
@@ -51,8 +40,9 @@ public class secondIT {
 	public static RequestSpecification request;
 	public  static String id;
 	 public static JsonPath jsonPathEvaluator;
-	 
-	 
+	//Unreliable ur = new Unreliable();
+	
+  
 	@Given("an employee exist in the database with id {string}")
 	public void an_employee_exists_with_id(String ID){
 		secondIT.id=ID;
@@ -67,7 +57,7 @@ public class secondIT {
 		secondIT.response = secondIT.request.pathParam("id", secondIT.id).get("/employee/{id}");
 		secondIT.jsonPathEvaluator = secondIT.response.jsonPath();
 		assertNotNull(response);
-		System.out.println("response: " + secondIT.response.getBody().prettyPrint());
+		//System.out.println("response: " + secondIT.response.getBody().prettyPrint());
 	}
 	
 	@Then("the status code for get employee is {int}")
@@ -99,13 +89,13 @@ public class secondIT {
 	
 	 @And("response includes the following employee info$")
 	public void employee_response_equals(Map<String, Object> ExpectedFields){
-       Map<String, Object> actualFields =  ExpectedFields.keySet().stream().collect(Collectors.toMap(expectedKey -> expectedKey, expectedKey -> jsonPathEvaluator.get(expectedKey)));
+    Map<String, Object> actualFields =  ExpectedFields.keySet().stream().collect(Collectors.toMap(expectedKey -> expectedKey, expectedKey -> jsonPathEvaluator.get(expectedKey).toString()));
 
-          for (Map.Entry<String, Object> ent : actualFields.entrySet()) {
-				  System.out.println(ent.getKey() + " = " + ent.getValue());
-             }
-        
-/*		 
+    assertThat(actualFields).containsAllEntriesOf(ExpectedFields); 
+    
+/*    
+ 
+     		 
 Gson gson = new Gson();
 JsonElement element = gson.fromJson (jsonPathEvaluator.prettyPrint(), JsonElement.class);
 JsonObject jsonObj = element.getAsJsonObject();
@@ -116,48 +106,67 @@ JsonObject jsonObj = element.getAsJsonObject();
 				 // assertEquals(secondIT.jsonPathEvaluator.get(entry.getKey()), entry.getValue());			  
              }
   */
-	    for (Map.Entry<String, Object> entry : ExpectedFields.entrySet()) {
-				  System.out.println(entry.getKey() + " ** " + entry.getValue());
-             }
-	     assertThat(actualFields).containsAllEntriesOf(ExpectedFields); 
-	    
+
 	}
-	
+//@Disabled	
 @Given("an employee record is created with values")
-	public void create_employee_record(){
-	 	 JSONObject jsonObj = new JSONObject()
-                             .put("employee_name","test name")
-				              .put("age",41)
-	 	                     .put("salary",410000);
-	 	 
-	 	            // secondIT.request.header("Content-Type", "application/json");
-                    //  secondIT.request.body(jsonObj.toString());
-                   //  Response  postResponse = secondIT.request.post("/create");
-                  //    DocumentContext ctx = com.jayway.jsonpath.JsonPath.parse(postResponse.getBody().prettyPrint());
-                  //   JsonPathAssert.assertThat(ctx).jsonPathAsInteger("$.data.salary").isEqualTo(410000);
-                     
-                             //.port(80) // port number
-                        Response  postResponse =   RestAssured.given()
+	public void create_employee_record(Map<String, Object> ToBeCreatedFields){
+	 	//to abort the test use this
+	 	//Assumptions.assumeTrue((false));
+	      JSONObject jsonObj = new JSONObject();
+	      
+	 	  for (Map.Entry<String, Object> entry : ToBeCreatedFields.entrySet()) {
+				 jsonObj.put(entry.getKey(),entry.getValue());					 
+             }
+	 	  
+                     Response  postResponse =   RestAssured.given()
                              .contentType("application/json")  //another way to specify content type
                              .body(jsonObj.toString())   // use jsonObj toString method
                              .when()
                              .post("/create");
-	 	                  /*
-	 	                    //hamcrest assert
-	 	                     then()
-                             .assertThat()
-							 .rootPath("data")
-                             .body("age", equalTo(41))
-							 .body("salary", equalTo(410000));
-							 */
+	 	                    		 	  
 	          assertThatJson(postResponse.getBody().prettyPrint())
-					  .inPath("$.data.salary").isEqualTo(410000);
+					  .inPath("$.data.salary").isString().isEqualTo("320000");
 	           assertThatJson(postResponse.getBody().prettyPrint())
-					  .inPath("$.data.age").isEqualTo(41);
+					  .inPath("$.data.age").isString().isEqualTo("41");
 	           assertThatJson(postResponse.getBody().prettyPrint())
 					  .inPath("$.status").isEqualTo("success");
 	            assertThatJson(postResponse.getBody().prettyPrint())
 					  .inPath("$.message").isEqualTo("Successfully! Record has been added.");
 	            
 	 }
+	
+	 @Given("an employee record is created with other values")
+	public void create_another_employee_record(Map<String, Object> ToBeCreatedFields){
+	 	
+	 	  JSONObject jsonObj = new JSONObject();
+	 	  for (Map.Entry<String, Object> entry : ToBeCreatedFields.entrySet()) {
+				 jsonObj.put(entry.getKey(),entry.getValue());					 
+             }
+
+                        Response  postResponse =   RestAssured.given()
+                             .contentType("application/json")  //another way to specify content type
+                             .body(jsonObj.toString())   // use jsonObj toString method
+                             .when()
+                             .post("/create");
+	 	
+	          assertThatJson(postResponse.getBody().prettyPrint())
+					  .inPath("$.data.salary").isString().isEqualTo("500000");
+	           assertThatJson(postResponse.getBody().prettyPrint())
+					  .inPath("$.data.age").isString().isEqualTo("50");
+	           assertThatJson(postResponse.getBody().prettyPrint())
+					  .inPath("$.status").isEqualTo("success");
+	            assertThatJson(postResponse.getBody().prettyPrint())
+					  .inPath("$.message").isEqualTo("Successfully! Record has been added.");
+	            
+	 }
+
+  
+	@Given("test fails because we want to test that way")
+	 
+	   public void  TestFailingTests()throws IOException {
+	 	
+	 	throw new IOException("Exception in I/O operation");
+	    }
+	 
 }
