@@ -3,7 +3,7 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2021-03-24T18:02:03.379Z",
+        "start_timestamp": "2021-03-24T20:42:39.460Z",
         "line": 3,
         "name": "get employee",
         "description": "",
@@ -13,7 +13,7 @@
         "steps": [
           {
             "result": {
-              "duration": 990503000,
+              "duration": 953645000,
               "status": "passed"
             },
             "line": 5,
@@ -31,7 +31,7 @@
           },
           {
             "result": {
-              "duration": 1785630000,
+              "duration": 2302979000,
               "status": "passed"
             },
             "line": 6,
@@ -43,7 +43,7 @@
           },
           {
             "result": {
-              "duration": 41412000,
+              "duration": 46791000,
               "status": "passed"
             },
             "line": 7,
@@ -61,7 +61,7 @@
           },
           {
             "result": {
-              "duration": 807585000,
+              "duration": 1103996000,
               "status": "passed"
             },
             "line": 8,
@@ -105,7 +105,7 @@
         ]
       },
       {
-        "start_timestamp": "2021-03-24T18:02:07.120Z",
+        "start_timestamp": "2021-03-24T20:42:43.974Z",
         "line": 15,
         "name": "post employee",
         "description": "",
@@ -116,7 +116,7 @@
           {
             "result": {
               "error_message": "java.lang.AssertionError: Different value found in node \"$.data.salary\", expected: \u003cstring\u003e but was: \u003cmissing\u003e.\n\tat net.javacrumbs.jsonunit.core.internal.matchers.InternalMatcher.failWithMessage(InternalMatcher.java:237)\n\tat net.javacrumbs.jsonunit.core.internal.matchers.InternalMatcher.failOnDifference(InternalMatcher.java:187)\n\tat net.javacrumbs.jsonunit.core.internal.matchers.InternalMatcher.failOnDifference(InternalMatcher.java:174)\n\tat net.javacrumbs.jsonunit.core.internal.matchers.InternalMatcher.isPresent(InternalMatcher.java:274)\n\tat net.javacrumbs.jsonunit.core.internal.matchers.InternalMatcher.assertType(InternalMatcher.java:289)\n\tat net.javacrumbs.jsonunit.assertj.JsonAssert.assertType(JsonAssert.java:267)\n\tat net.javacrumbs.jsonunit.assertj.JsonAssert.isString(JsonAssert.java:209)\n\tat com.test@1.0-SNAPSHOT/com.test.stepdefs.secondIT.create_employee_record(secondIT.java:128)\n\tat ✽.an employee record is created with values(classpath:com/test/secondTest.feature:16)\n",
-              "duration": 1300344000,
+              "duration": 3513164000,
               "status": "failed"
             },
             "line": 16,
@@ -154,7 +154,7 @@
         ]
       },
       {
-        "start_timestamp": "2021-03-24T18:02:08.454Z",
+        "start_timestamp": "2021-03-24T20:42:47.517Z",
         "line": 22,
         "name": "post another employee",
         "description": "",
@@ -165,7 +165,7 @@
           {
             "result": {
               "error_message": "java.lang.AssertionError: Different value found in node \"$.data.salary\", expected: \u003cstring\u003e but was: \u003cmissing\u003e.\n\tat net.javacrumbs.jsonunit.core.internal.matchers.InternalMatcher.failWithMessage(InternalMatcher.java:237)\n\tat net.javacrumbs.jsonunit.core.internal.matchers.InternalMatcher.failOnDifference(InternalMatcher.java:187)\n\tat net.javacrumbs.jsonunit.core.internal.matchers.InternalMatcher.failOnDifference(InternalMatcher.java:174)\n\tat net.javacrumbs.jsonunit.core.internal.matchers.InternalMatcher.isPresent(InternalMatcher.java:274)\n\tat net.javacrumbs.jsonunit.core.internal.matchers.InternalMatcher.assertType(InternalMatcher.java:289)\n\tat net.javacrumbs.jsonunit.assertj.JsonAssert.assertType(JsonAssert.java:267)\n\tat net.javacrumbs.jsonunit.assertj.JsonAssert.isString(JsonAssert.java:209)\n\tat com.test@1.0-SNAPSHOT/com.test.stepdefs.secondIT.create_another_employee_record(secondIT.java:153)\n\tat ✽.an employee record is created with other values(classpath:com/test/secondTest.feature:23)\n",
-              "duration": 922602000,
+              "duration": 1309143000,
               "status": "failed"
             },
             "line": 23,

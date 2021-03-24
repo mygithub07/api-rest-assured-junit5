@@ -25,5 +25,5 @@ steps:
     #jdkVersionOption: '1.11'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
-    #testResultsFiles: '**/target/cucumber.html'
+    testResultsFiles: '**/failsafe-reports/*.dump'
     goals: 'clean verify -P acceptanceTests -e '
