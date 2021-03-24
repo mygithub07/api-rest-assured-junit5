@@ -20,10 +20,10 @@ steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
-    #mavenOptions: '-Xmx3072m -XX:MaxPermSize=256m'
+    mavenOptions: '-Xmx3072m'
     #javaHomeOption: 'JDKVersion'
     #jdkVersionOption: '1.11'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     #testResultsFiles: '**/target/cucumber.html'
-    goals: 'clean verify -P acceptanceTests -e'
+    goals: 'clean verify -P acceptanceTests -e > log-file.log'
