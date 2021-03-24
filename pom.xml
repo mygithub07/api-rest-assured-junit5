@@ -162,7 +162,7 @@
                   <excludes>
                     <exclude>**</exclude>
                   </excludes>
-                     <testFailureIgnore>true</testFailureIgnore>
+                     
                 </configuration>
              </plugin>
              <plugin>
@@ -189,7 +189,7 @@
                   <failIfNoTests>false</failIfNoTests>
                 -->
                 <testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory> 
-                <testFailureIgnore>true</testFailureIgnore>
+               
                 <includes>
                     <include>**/*IT.java</include>
                 </includes>
