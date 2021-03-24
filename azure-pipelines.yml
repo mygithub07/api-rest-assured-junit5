@@ -20,7 +20,7 @@ steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m -XX:MaxPermSize=256m'
+    #mavenOptions: '-Xmx3072m -XX:MaxPermSize=256m'
     #javaHomeOption: 'JDKVersion'
     #jdkVersionOption: '1.11'
     jdkArchitectureOption: 'x64'
