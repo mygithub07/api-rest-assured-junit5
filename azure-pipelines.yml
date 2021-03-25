@@ -35,11 +35,6 @@ steps:
     
 - task: PublishCucumberReport@1
   inputs:
-          jsonDir: ./target/cucumber
-          outputPath: ./results/cucumber
-          metadata: |
-            {
-              "ApplicationUrl": "$(App.Url)"
-            }
-          name: 'Functional Tests'
-          title: API
+     jsonDir: /target/
+     outputPath: /target/
+     
