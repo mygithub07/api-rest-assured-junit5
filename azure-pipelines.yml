@@ -27,3 +27,20 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/target/cucumber.html'
     goals: 'clean verify -P acceptanceTests -e -X'
+
+- task: NodeTool@0
+  displayName: 'Install Node 12.x'
+  inputs:
+    versionSpec: 12.x
+    
+- task: PublishCucumberReport@1
+        displayName: 'Publish Cucumber Report'
+        inputs:
+          jsonDir: ./target/cucumber
+          outputPath: ./results/cucumber
+          metadata: |
+            {
+              "ApplicationUrl": "$(App.Url)"
+            }
+          name: 'Functional Tests'
+          title: API
