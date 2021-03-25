@@ -200,10 +200,10 @@
                             <value>io.qameta.allure.junit5.AllureJunit5</value>
                         </property>
                 </properties>
-                  <argLine>
+               <!--   <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
-                  <!--
+                  -->
                     <systemProperties>
                         <property>
                             <name>allure.results.directory</name>
@@ -215,7 +215,7 @@
                         </property>
                     </systemProperties>
                     <reportFormat>plain</reportFormat>
-                  -->  
+               
                 </configuration>
           </plugin>
            <plugin>
