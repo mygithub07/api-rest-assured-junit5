@@ -3,7 +3,7 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2021-03-25T16:42:47.059Z",
+        "start_timestamp": "2021-03-25T16:49:20.952Z",
         "line": 3,
         "name": "get employee",
         "description": "",
@@ -13,7 +13,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1053700000,
+              "duration": 1031220000,
               "status": "passed"
             },
             "line": 5,
@@ -31,7 +31,7 @@
           },
           {
             "result": {
-              "duration": 1868145000,
+              "duration": 1705282000,
               "status": "passed"
             },
             "line": 6,
@@ -43,7 +43,7 @@
           },
           {
             "result": {
-              "duration": 48276000,
+              "duration": 45088000,
               "status": "passed"
             },
             "line": 7,
@@ -61,7 +61,7 @@
           },
           {
             "result": {
-              "duration": 736099000,
+              "duration": 622834000,
               "status": "passed"
             },
             "line": 8,
@@ -105,7 +105,7 @@
         ]
       },
       {
-        "start_timestamp": "2021-03-25T16:42:50.888Z",
+        "start_timestamp": "2021-03-25T16:49:24.448Z",
         "line": 15,
         "name": "post employee",
         "description": "",
@@ -115,7 +115,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1191025000,
+              "duration": 852212000,
               "status": "passed"
             },
             "line": 16,
@@ -153,7 +153,7 @@
         ]
       },
       {
-        "start_timestamp": "2021-03-25T16:42:52.098Z",
+        "start_timestamp": "2021-03-25T16:49:25.313Z",
         "line": 22,
         "name": "post another employee",
         "description": "",
@@ -163,7 +163,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1003949000,
+              "duration": 614539000,
               "status": "passed"
             },
             "line": 23,
