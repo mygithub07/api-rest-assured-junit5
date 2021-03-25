@@ -193,7 +193,7 @@
                 <includes>
                     <include>**/*IT.java</include>
                 </includes>
-                  
+               <!--   
                  <properties>
                         <property>
                             <name>listener</name>
@@ -214,7 +214,7 @@
                         </property>
                     </systemProperties>
                     <reportFormat>plain</reportFormat>
-                    
+                 -->   
                 </configuration>
           </plugin>
            <plugin>
