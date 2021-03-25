@@ -21,7 +21,8 @@ steps:
   displayName: 'Install Node 12.x'
   inputs:
     versionSpec: 12.x
-    
+
+#removed 'javaHomeOption' and  'jdkVersionOption' as using task 'JavaToolInstaller` , which sets java home on agent
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -32,7 +33,8 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/target/cucumber.html'
     goals: 'clean verify -P acceptanceTests -e -X'
-    
+
+# if get error "A task is missing. The pipeline references.." install it manually from marketplace    
 - task: PublishCucumberReport@1
   inputs:
      jsonDir: ./target/

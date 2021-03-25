@@ -193,28 +193,6 @@
                 <includes>
                     <include>**/*IT.java</include>
                 </includes>
-                  
-                 <properties>
-                        <property>
-                            <name>listener</name>
-                            <value>io.qameta.allure.junit5.AllureJunit5</value>
-                        </property>
-                </properties>
-                  <argLine>
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                    </argLine>
-                    <systemProperties>
-                        <property>
-                            <name>allure.results.directory</name>
-                            <value>${project.basedir}/allure-results</value>
-                        </property>
-                        <property>
-                            <name>junit.jupiter.extensions.autodetection.enabled</name>
-                            <value>true</value>
-                        </property>
-                    </systemProperties>
-                    <reportFormat>plain</reportFormat>
-                    
                 </configuration>
           </plugin>
            <plugin>
