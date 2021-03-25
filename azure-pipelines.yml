@@ -34,8 +34,8 @@ steps:
     versionSpec: 12.x
     
 - task: PublishCucumberReport@1
-        displayName: 'Publish Cucumber Report'
-        inputs:
+  displayName: 'Publish Cucumber Report'
+  inputs:
           jsonDir: ./target/cucumber
           outputPath: ./results/cucumber
           metadata: |
