@@ -35,6 +35,6 @@ steps:
     
 - task: PublishCucumberReport@1
   inputs:
-     jsonDir: /target/
-     outputPath: /target/
+     jsonDir: ./target/
+     outputPath: ./target/
      
