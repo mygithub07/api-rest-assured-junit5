@@ -26,4 +26,4 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/failsafe-reports/*.dump'
-    goals: 'clean verify -P acceptanceTests -e -x'
+    goals: 'clean verify -P acceptanceTests -e -X'
